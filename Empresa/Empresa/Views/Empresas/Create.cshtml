@@ -1,0 +1,96 @@
+﻿@model CadastroEmpresa.Models.Empresa
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+@if (ViewData["erro"] != null)
+{
+    @Html.Raw("<script>alert('" + ViewData["erro"] as string + "');</script>")
+}
+
+<h4><br/><b>CADASTRO</b></h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Pesquisar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CNPJ"  class="control-label"></label>
+                <input asp-for="CNPJ" class="form-control" placeholder="Digite um CNPJ válido" name="empresaCNPJ" />
+                <span asp-validation-for="CNPJ" class="text-danger"></span> 
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Pesquisar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.CNPJ)
+                    </dt>
+                    <dd class="col-sm-10">
+                        <input asp-for="CNPJ" class="form-control" readonly="readonly" />
+                    </dd>
+                </dl>
+
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </dt>
+                    <dd class="col-sm-10">
+                        <input asp-for="Nome" class="form-control" readonly="readonly" />
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.NomeFantasia)
+                    </dt>
+                    <dd class="col-sm-10">
+                        <input asp-for="NomeFantasia" class="form-control" readonly="readonly" />
+                    </dd>
+                </dl>
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    <dd class="col-sm-10">
+                        <input asp-for="Email" class="form-control" readonly="readonly" />
+                    </dd>
+                </dl>
+                        <dl class="row">
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.Telefone)
+                            </dt>
+                            <dd class="col-sm-10">
+                                <input asp-for="Telefone" class="form-control" readonly="readonly" />
+                            </dd>
+                        </dl>
+</div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+                @Html.ValidationMessageFor(m => m.CNPJ, "", new { @class = "text-danger" })
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Retornar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

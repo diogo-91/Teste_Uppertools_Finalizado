@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Empresa</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<style>
+    .titulo {
+        margin: auto;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        text-align:justify;
+    }
+
+    .fundo {
+        background-color: #fafafa;
+    }
+
+    .lista {
+        text-align: left;
+        color: #A12C32;
+        margin-top:35px;
+        margin-bottom:20px;
+    }
+
+    .tabela {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+  
+      
+</style>
+
+
+<body class="fundo">
+   
+    <header>
+        <br /><center><img src="~/img/uppertools.png" alt="Image" height="115" width="400"></center><br/>
+        <nav class="navbar navbar-light bg-dark">
+            <div class="titulo">
+                <a class="barra">PROCESSO SELETIVO ESTÁGIO - CONSULTA E CADASTRO DE EMPRESA</a><br/>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Empresa - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
